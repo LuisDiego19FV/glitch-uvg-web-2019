@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
-export default class Input extends Component {
-  
+export default class Input extends React.Component {
+
   constructor(props){
     super(props)
-    
+
     this.state = {
       input: ""
     }
@@ -13,7 +13,7 @@ export default class Input extends Component {
     this.clearText = this.clearText.bind(this)
     this.search = this.search.bind(this)
   }
-  
+
   render() {
     const divStyle = {
       padding: "1.3em .8em 1em",
@@ -36,9 +36,9 @@ export default class Input extends Component {
         boxShadow: "0 2px 3px rgba(0,0,0,0.06)",
         paddingLeft: ".75em",
         paddingRight: "0.05em",
-       
+
     }
-    
+
     const inputStyle = {
         fontSize: "2em",
         fontWeight: "normal",
@@ -76,7 +76,7 @@ export default class Input extends Component {
         backgroundColor: "transparent",
         backgroundRepeat: "no-repeat"
     }
-    
+
     const inputSearch = {
         display: "block",
         width: "100%",
@@ -90,71 +90,41 @@ export default class Input extends Component {
         backgroundRepeat: "no-repeat"
     }
 
-    const clearStyle = {
-        display: "none",
-        marginRight: "3.2em",
-        padding: "0.5em",
-        lineHeight: "1",
-        minWidth: "21px",
-        color: "#aaa",
-        visibility: "hidden",
-        opacity: "0",
-        boxSizing: "content-box",
-        speak: "none",
-        fontSyle: "normal",
-        fontWeight: "normal !important",
-        fontVariant: "normal",
-        textTransform: "none",
-        textDecoration: "none !important",
-        width: "1em",
-        cursor: "pointer",
-        background: "transparent",
-        textAlign: "center",
-        border: "none",
-        height: "2.45em",
-        position: "absolute",
-        top: "0",
-        bottom: "0",
-        right: "2px",
-        left: "auto",
-        margin: "auto",
-        zIndex: "2",
-        outline: "none"
-    }
-    
+
+
     const divS = {
       display: "flex",
       flexDirection: "row"
     }
-    
+
     return (
       <div style={divStyle}>
         <form style={formStyle}>
           <input onChange={this.setText} name="search" style={inputStyle} type="text" autoComplete="off" tabIndex="1" autoCapitalize="off" autoCorrect="off"></input>
-          {this.state.input != "" ? 
+          {this.state.input != "" ?
             <div style={divS}>
               <button value="X" className="fa fa-times" style={input2Style} onClick={this.clearText} tabIndex="3"></button>
-              <button className="fa fa-search" style={inputSearch} onClick={this.search} tabIndex="2"></button> 
+              <button className="fa fa-search" style={inputSearch} onClick={this.search} tabIndex="2"></button>
             </div>
             : <button className="fa fa-search hover" tabIndex="2"></button> }
         </form>
       </div>
     )
   }
-  
+
   setText() {
     this.setState({
       input: document.getElementsByName("search")[0].value
     })
   }
-  
+
   clearText() {
     this.setState({
       input: ""
     })
     document.getElementsByName("search")[0].value = ""
   }
-  
+
   search(event) {
     event.preventDefault()
     window.open("https://duckduckgo.com/?q=" + this.state.input + "&t=h_&ia=web")

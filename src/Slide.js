@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Slide.css';
 
-class Slide extends Component {
-  // Hola soy Rodrigo Zea, discipulo de MS 
+class Slide extends React.Component {
+  // Hola soy Rodrigo Zea, discipulo de MS
   // Jose Cifuentes :) discipulo de MS
   // holis xd
   render () {
@@ -13,20 +13,20 @@ class Slide extends Component {
       zoom: '0.8',
       margin: 'auto auto auto auto'
     }
-    
+
     const bgColor = {
       background: `#${this.props.bgColor}`
     }
-    
+
     const textColor = {
         color: `#${this.props.txtColor}`
       }
-    
+
     const textShadow = {
         color: `#${this.props.txtColor}`,
         textShadow: '0 1px 4px rgba(0,0,0,0.25)'
-      } 
-    
+      }
+
     return (
       <div className="slideContainer" style={bgColor}>
         <h1 style={this.props.shadow ? textShadow : textColor}>{this.props.title}</h1>
@@ -39,7 +39,3 @@ class Slide extends Component {
 }
 
 export default Slide;
-
-
-
-

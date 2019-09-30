@@ -1,7 +1,7 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class DataInfo extends Component {
+export default class DataInfo extends React.Component {
   render () {
     return (
       <ol>
